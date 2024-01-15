@@ -1,3 +1,7 @@
 export default function Accueil() {
-    return <div></div>;
+    return (
+        <div className="container-fluid text-center">
+            <div className="container d-flex justify-content-between flex"></div>
+        </div>
+    );
 }
