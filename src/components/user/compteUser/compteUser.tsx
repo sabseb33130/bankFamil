@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import DeleteUser from '../delete_update/deleteUser';
 import EditUser from '../delete_update/editUser';
 
-import { baseUrl } from '../../../constant/generalConst';
 import { UserContext } from '../../../contexts/userContext';
 
 export function CompteUser(props: {

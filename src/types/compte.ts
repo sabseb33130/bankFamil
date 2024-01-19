@@ -1,5 +1,6 @@
 export type TCompte = {
-    prenom: string;
-    nom: string;
-    pseudo: string;
+    date: string;
+    operation: string;
+    montant: number;
+    type: string;
 };

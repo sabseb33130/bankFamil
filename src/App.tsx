@@ -7,6 +7,7 @@ import Login from './components/connexion/login_logout/login';
 import { RegisterFinal } from './components/connexion/register/registerFinal';
 import Accueil from './components/accueil';
 import Header from './components/header';
+import PostCompte from './components/compte/postCompte';
 
 function App() {
     const token: string | null = localStorage.getItem('token');
@@ -32,6 +33,7 @@ function App() {
             {page === 'update' && (
                 <UpdateUsers token={token} setPage={setPage} />
             )}
+            {page === 'compteope' && <PostCompte />}
             {page === 'erreur401' && (
                 <div
                     className="container mx-auto alert alert-warning m-auto alert-dismissible fade show"
