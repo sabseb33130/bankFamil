@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { TCompte } from '../../types/compte';
 import { compteUrl } from '../../constant/generalConst';
-import { setPriority } from 'os';
 
 export default function PostCompte() {
     const [recup, setRecup] = useState<TCompte>();
@@ -23,13 +22,27 @@ export default function PostCompte() {
     const inputType = (e: React.BaseSyntheticEvent) => {
         setType(e.target.value);
     };
-
+    const value: number = (() => {
+        switch (type) {
+            case 'Crédit':
+                return montant;
+            case 'Virement (crédit)':
+                return montant;
+            case 'Dépense':
+                return montant;
+            case 'Virement (Dépense)':
+                return -montant;
+            default:
+                return -montant;
+        }
+    })();
     const bodyObject = {
         operation: operation,
         date: date,
-        montant: Number(montant),
+        montant: Number(value),
         type: type,
     };
+
     const bodyPost = JSON.stringify(bodyObject);
 
     const options = {
@@ -101,7 +114,6 @@ export default function PostCompte() {
                     </button>
                 </div>
             </form>
-            {recup?.operation}
         </div>
     );
 }

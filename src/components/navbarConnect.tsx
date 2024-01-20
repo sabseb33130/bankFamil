@@ -74,7 +74,9 @@ export default function Navbar(props: {
                                                 className="dropdown-item"
                                                 href="/#"
                                                 onClick={() => {
-                                                    props.setPage('friends');
+                                                    props.setPage(
+                                                        'compteRecep',
+                                                    );
                                                 }}
                                             >
                                                 Mes comptes

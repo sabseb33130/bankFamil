@@ -27,25 +27,7 @@ export function CompteUser(props: {
                     </div>
                 </div>
             </div>
-            <div className=" text-center ">Mes mouvements</div>
-            <table className="border border-5 text-center">
-                <thead>
-                    <tr>
-                        <td className="border border-5">Date</td>
-                        <td className="border border-5">Operation</td>
-                        <td className="border border-5">Montant</td>
-                        <td className="border border-5">Type d'opération</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td className="border border-5">18/11/2024</td>
-                        <td className="border border-5">Salaire</td>
-                        <td className="border border-5">2500</td>
-                        <td className="border border-5">Virement</td>
-                    </tr>
-                </tbody>
-            </table>
+           
         </div>
     );
 }
