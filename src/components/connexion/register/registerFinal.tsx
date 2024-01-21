@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { baseUrl } from '../../../constant/generalConst';
 import { userDefault } from '../../../constant/userDefault';
 import { TUser } from '../../../types/users';

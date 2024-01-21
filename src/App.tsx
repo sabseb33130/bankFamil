@@ -8,7 +8,6 @@ import { RegisterFinal } from './components/connexion/register/registerFinal';
 import Accueil from './components/accueil';
 import Header from './components/header';
 import PostCompte from './components/compte/postCompte';
-import { TUser } from './types/users';
 
 function App() {
     const token: string | null = localStorage.getItem('token');

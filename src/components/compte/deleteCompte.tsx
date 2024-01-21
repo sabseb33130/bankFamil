@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react';
-import { UserContext } from '../../contexts/userContext';
+import { useState } from 'react';
+
 import { compteUrl } from '../../constant/generalConst';
 import Popconfirm from 'antd/es/popconfirm';
 import { message } from 'antd';
 import { TUser } from '../../types/users';
-import { TCompte } from '../../types/compte';
 import { TCompteDelete } from '../../types/compteDelete';
 
 export default function DeleteCompte(props: {

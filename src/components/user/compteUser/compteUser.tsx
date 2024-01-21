@@ -12,7 +12,6 @@ export function CompteUser(props: {
 }) {
     const [sommetot, setSommetot] = useState(0);
     const { user, onUserChange } = useContext(UserContext);
-    const token = localStorage.getItem('token');
 
     const affichDonnees = user.compte?.map((data, i) => {
         const valeur: string =
@@ -49,7 +48,7 @@ export function CompteUser(props: {
         const total = user.compte?.map((data) => data.montant);
 
         const somme =
-            total != undefined
+            total !== undefined
                 ? total.reduce(
                       (total: number, valeur: number) => total + Number(valeur),
                       0,
