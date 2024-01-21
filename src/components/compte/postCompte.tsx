@@ -41,7 +41,7 @@ export default function PostCompte(props: {
             case 'Virement (Dépense)':
                 return -montant;
             default:
-                return montant;
+                return -montant;
         }
     })();
     const bodyObject = {
@@ -124,7 +124,8 @@ export default function PostCompte(props: {
                 <div className="text-center">
                     <label className="me-5 mt-2">Type</label>
                     <select name="type" onChange={(e) => inputType(e)}>
-                        <option value="Crédit">Crédit</option>
+                        <option></option>
+                        <option>Crédit</option>
                         <option>Dépense</option>
                         <option>Virement (crédit)</option>
                         <option>Virement (dépense)</option>
