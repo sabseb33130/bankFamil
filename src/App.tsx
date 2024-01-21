@@ -8,14 +8,13 @@ import { RegisterFinal } from './components/connexion/register/registerFinal';
 import Accueil from './components/accueil';
 import Header from './components/header';
 import PostCompte from './components/compte/postCompte';
-import GetCompte from './components/compte/getCompte';
+import { TUser } from './types/users';
 
 function App() {
     const token: string | null = localStorage.getItem('token');
     const { user, onUserChange } = useContext(UserContext);
     // const verifConnect = token ? 'compte' : 'accueil';
-    const [page, setPage] = useState('Accueil');
-    const [sommetot, setSommetot] = useState<number>(0);
+    const [page, setPage] = useState('compte');
     useEffect(() => {
         getUser(user, onUserChange);
         // eslint-disable-next-line
@@ -26,7 +25,6 @@ function App() {
             {' '}
             <Header token={token} setPage={setPage} page={page} />
             {page === 'accueil' && token === null && <Accueil />}
-            <div className="text-center">État de votre compte: {sommetot}</div>
             {page === 'compte' && (
                 <CompteUser token={token} setPage={setPage} />
             )}
@@ -35,9 +33,12 @@ function App() {
             {page === 'update' && (
                 <UpdateUsers token={token} setPage={setPage} />
             )}
-            {page === 'compteope' && <PostCompte />}
-            {page === 'compteRecep' && (
-                <GetCompte sommetot={sommetot} setSommetot={setSommetot} />
+            {page === 'compteope' && (
+                <PostCompte
+                    user={user}
+                    onUserChange={onUserChange}
+                    setPage={setPage}
+                />
             )}
             {page === 'erreur401' && (
                 <div

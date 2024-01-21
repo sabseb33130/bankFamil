@@ -68,20 +68,6 @@ export default function Navbar(props: {
                                                 Ajouter une opération
                                             </a>
                                         </li>{' '}
-                                        <hr className="dropdown-divider" />
-                                        <li>
-                                            <a
-                                                className="dropdown-item"
-                                                href="/#"
-                                                onClick={() => {
-                                                    props.setPage(
-                                                        'compteRecep',
-                                                    );
-                                                }}
-                                            >
-                                                Mes comptes
-                                            </a>
-                                        </li>
                                     </ul>
                                 </li>
                             </>

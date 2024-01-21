@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react';
 import { TCompte } from '../../types/compte';
 import { compteUrl } from '../../constant/generalConst';
+import { TUser } from '../../types/users';
 
-export default function PostCompte() {
-    const [recup, setRecup] = useState<TCompte>();
+export default function PostCompte(props: {
+    user: TUser;
+    onUserChange: (value: TUser) => void;
+    setPage: React.Dispatch<React.SetStateAction<string>>;
+}) {
     const token = localStorage.getItem('token');
     const [operation, setOperation] = useState('');
     const [date, setDate] = useState('');
     const [montant, setMontant] = useState(0);
     const [type, setType] = useState('');
     const [test, setTest] = useState('testa');
+    const [visible, setVisible] = useState(false);
+    const visi = visible === false ? 'd-none' : 'd-block';
+    const visi1 = visible === true ? 'd-none' : 'd-block';
+
     const inputOperation = (e: React.BaseSyntheticEvent) => {
         setOperation(e.target.value);
     };
@@ -29,11 +37,11 @@ export default function PostCompte() {
             case 'Virement (crédit)':
                 return montant;
             case 'Dépense':
-                return montant;
+                return -montant;
             case 'Virement (Dépense)':
                 return -montant;
             default:
-                return -montant;
+                return montant;
         }
     })();
     const bodyObject = {
@@ -59,14 +67,34 @@ export default function PostCompte() {
             .then((response) => response.json())
 
             .then((data) => {
-                setRecup(data.data);
+                const addope = (value: TCompte) => {
+                    const newModif = { ...props.user };
+                    props.setPage('compte');
+                    props.onUserChange(newModif);
+                };
+                addope(data.data);
             })
             .catch((err) => console.error(err));
     }, [test]);
 
     return (
         <div className="container-fluid">
-            <form method="submit" className="d-flex flex-column container">
+            <button
+                className={`btn btn-success  rounded-pill border border-2 border-dark ${visi1} mb-5`}
+                onClick={() => setVisible(true)}
+            >
+                creer une opération
+            </button>
+            <button
+                className={`btn btn-info  rounded-pill border border-2 border-dark ${visi} mb-5`}
+                onClick={() => setVisible(false)}
+            >
+                fermer la création d'opération
+            </button>
+            <form
+                method="submit"
+                className={`d-flex flex-column container ${visi}`}
+            >
                 <div className="text-center">
                     {' '}
                     <label className="me-5 mt-2">Opération</label>

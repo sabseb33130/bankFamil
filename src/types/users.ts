@@ -1,3 +1,5 @@
+import { TCompte } from './compte';
+
 export type TUser = {
     id: number;
     prenom: string;
@@ -6,4 +8,5 @@ export type TUser = {
     password: string;
     passwordConfirmed: string;
     access_token: string;
+    compte: TCompte;
 };
