@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bakfamilback/static/css/main.e6c13ad2.css",
+    "main.js": "/bakfamilback/static/js/main.6728aca2.js",
+    "static/js/787.8e313b4e.chunk.js": "/bakfamilback/static/js/787.8e313b4e.chunk.js",
+    "index.html": "/bakfamilback/index.html",
+    "main.e6c13ad2.css.map": "/bakfamilback/static/css/main.e6c13ad2.css.map",
+    "main.6728aca2.js.map": "/bakfamilback/static/js/main.6728aca2.js.map",
+    "787.8e313b4e.chunk.js.map": "/bakfamilback/static/js/787.8e313b4e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.6728aca2.js"
+  ]
+}
